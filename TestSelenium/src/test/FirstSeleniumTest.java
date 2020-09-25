@@ -61,7 +61,7 @@ public class FirstSeleniumTest {
 
 		driver.manage().window().maximize();
 		//String url = "https://hago-pilot-model-portal.herokuapp.com/";
-		String url = "https://twitter.com/";
+		String url = "https://hago-pilot-model-portal.herokuapp.com/pilotmodelportal/login";
 		driver.get(url);
 		System.out.println("Browser running and opening URL " + url);
 		
