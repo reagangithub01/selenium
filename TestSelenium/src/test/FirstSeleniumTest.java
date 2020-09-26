@@ -2,19 +2,23 @@ package test;
 
 import java.util.Properties;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import config.PropertiesFile;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import pages.GoogleSearchPage;
+import pages.GoogleSearchPageObjects;
 
 public class FirstSeleniumTest {
 
 	//static String browser; //use variable w/in the Class=FirstSeleniumTest
 	public static String browser; //use variable visible outside the Class like Properties.Java 
-	static WebDriver driver;
-
+	static WebDriver driver = null;
+	
+	
 	public static void main(String[] args) {
 		try {
 
@@ -22,11 +26,11 @@ public class FirstSeleniumTest {
 			PropertiesFile.readPropertiesFile();
 			setBrowserConfig();
 			runTest();
-			PropertiesFile.writePropertiesFile(); // to call Write Function under PropertiesFile Call
+			//PropertiesFile.writePropertiesFile(); // to call Write Function under PropertiesFile Call
 
 		}catch (Exception exp) {
-			System.out.println("Cause is " + exp.getCause());
-			System.out.println("Message is " + exp.getMessage());
+			System.out.println("Cause po nito ay " + exp.getCause());
+			System.out.println("Message po nito ay " + exp.getMessage());
 			exp.printStackTrace();
 		}
 	}
@@ -52,22 +56,33 @@ public class FirstSeleniumTest {
 		if(browser.contains("Chrome")) {
 		//for Chrome
 		System.setProperty("webdriver.chrome.driver","./driver/chromedriver.exe");
-		//WebDriverManager.chromedriver().setup(); // with error
 		driver = new ChromeDriver();
 		}
 	}
 
 	public static void runTest() {
 
+				
 		driver.manage().window().maximize();
 		//String url = "https://hago-pilot-model-portal.herokuapp.com/";
-		String url = "https://hago-pilot-model-portal.herokuapp.com/pilotmodelportal/login";
+		String url = "https://google.com";
 		driver.get(url);
 		System.out.println("Browser running and opening URL " + url);
 		
-		//3 sec delay
+		GoogleSearchPageObjects searchPageObj = new GoogleSearchPageObjects(driver); //calling WebDriver from GoogleSearchPageObject class
+		
+		//driver.findElement(By.name("q")).sendKeys("Automation Step by Step");
+		//GoogleSearchPage.textbox_search(driver).sendKeys("Automation Step by Step"); //referencing to pages/GoogleSearchPage class
+		searchPageObj.setTextInSearchBox("ABCD"); //referencing to pages/GoogleSearchObjects class
+		
+		//driver.findElement(By.name("btnK")).sendKeys(Keys.RETURN);
+		//GoogleSearchPage.button_search(driver).sendKeys(Keys.RETURN); //referencing to pages class
+		searchPageObj.clickSearchButton(); //referencing to pages/GoogleSearchObjects class
+	
+		
+		
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(3000); //3 sec delay
 		} catch (Exception exp) {
 			exp.printStackTrace();
 		}
