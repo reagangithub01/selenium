@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="10376" started-at="2020-09-27T22:05:54 SGT" finished-at="2020-09-27T22:06:04 SGT">
+  <suite name="Default suite" duration-ms="21862" started-at="2020-09-27T22:39:40 SGT" finished-at="2020-09-27T22:40:02 SGT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="10376" started-at="2020-09-27T22:05:54 SGT" finished-at="2020-09-27T22:06:04 SGT">
+    <test name="Default test" duration-ms="21862" started-at="2020-09-27T22:39:40 SGT" finished-at="2020-09-27T22:40:02 SGT">
       <class name="test.FirstSeleniumTest_ExtentReports_TestNG">
-        <test-method status="PASS" signature="setBrowser()[pri:0, instance:test.FirstSeleniumTest_ExtentReports_TestNG@4b9e255]" name="setBrowser" is-config="true" duration-ms="75" started-at="2020-09-27T22:05:54 SGT" finished-at="2020-09-27T22:05:54 SGT">
+        <test-method status="PASS" signature="setBrowser()[pri:0, instance:test.FirstSeleniumTest_ExtentReports_TestNG@5e57643e]" name="setBrowser" is-config="true" duration-ms="95" started-at="2020-09-27T22:39:40 SGT" finished-at="2020-09-27T22:39:40 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method status="PASS" signature="setBrowserConfig()[pri:0, instance:test.FirstSeleniumTest_ExtentReports_TestNG@4b9e255]" name="setBrowserConfig" is-config="true" duration-ms="3145" started-at="2020-09-27T22:05:54 SGT" finished-at="2020-09-27T22:05:57 SGT">
+        <test-method status="PASS" signature="setBrowserConfig()[pri:0, instance:test.FirstSeleniumTest_ExtentReports_TestNG@5e57643e]" name="setBrowserConfig" is-config="true" duration-ms="3824" started-at="2020-09-27T22:39:40 SGT" finished-at="2020-09-27T22:39:44 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowserConfig -->
-        <test-method status="PASS" signature="runTest()[pri:0, instance:test.FirstSeleniumTest_ExtentReports_TestNG@4b9e255]" name="runTest" duration-ms="6478" started-at="2020-09-27T22:05:57 SGT" finished-at="2020-09-27T22:06:04 SGT">
+        <test-method status="PASS" signature="runTest()[pri:0, instance:test.FirstSeleniumTest_ExtentReports_TestNG@5e57643e]" name="runTest" duration-ms="8658" started-at="2020-09-27T22:39:44 SGT" finished-at="2020-09-27T22:39:53 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runTest -->
-        <test-method status="PASS" signature="endTest()[pri:0, instance:test.FirstSeleniumTest_ExtentReports_TestNG@4b9e255]" name="endTest" is-config="true" duration-ms="730" started-at="2020-09-27T22:06:04 SGT" finished-at="2020-09-27T22:06:04 SGT">
+        <test-method status="PASS" signature="runTest2()[pri:0, instance:test.FirstSeleniumTest_ExtentReports_TestNG@5e57643e]" name="runTest2" duration-ms="4390" started-at="2020-09-27T22:39:53 SGT" finished-at="2020-09-27T22:39:57 SGT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runTest2 -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:test.FirstSeleniumTest_ExtentReports_TestNG@5e57643e]" name="closeBrowser" is-config="true" duration-ms="4965" started-at="2020-09-27T22:39:57 SGT" finished-at="2020-09-27T22:40:02 SGT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method status="PASS" signature="endTest()[pri:0, instance:test.FirstSeleniumTest_ExtentReports_TestNG@5e57643e]" name="endTest" is-config="true" duration-ms="200" started-at="2020-09-27T22:40:02 SGT" finished-at="2020-09-27T22:40:02 SGT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTest -->

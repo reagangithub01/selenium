@@ -46,8 +46,8 @@ public class FirstSeleniumTest_ExtentReports_TestNG {
 	//	}
 
 	@BeforeSuite
-	public static void setBrowser() { //this FUNCTON will NOT be called due 1) commented function under Main function 2) called properties file instead
-		browser="Firefox";
+	public  void setBrowser() { //this FUNCTON will NOT be called due 1) commented function under Main function 2) called properties file instead
+		browser="Chrome";
 		
 		htmlReporter = new ExtentHtmlReporter("extentReportsTestNG.html");
 		extent = new ExtentReports();
@@ -55,28 +55,28 @@ public class FirstSeleniumTest_ExtentReports_TestNG {
 	}
 
 	@BeforeTest
-	public static void setBrowserConfig() {
-			
+	public  void setBrowserConfig() {
+		
 		if(browser.contains("Firefox")) {
 			System.setProperty("webdriver.gecko.driver","./driver/geckodriver.exe");
 			System.setProperty("webdriver.firefox.bin","C:\\Program Files\\Mozilla Firefox\\firefox.exe");
 			driver = new FirefoxDriver();
-
+			System.out.println("Selected Firefox Browser");
 		}
 
 		if(browser.contains("Chrome")) {
 			System.setProperty("webdriver.chrome.driver","./driver/chromedriver.exe");
 			driver = new ChromeDriver();
-
+			System.out.println("Selected Firefox Browser");
 		}
 	}
 
 	@Test
-	public static void runTest() {
+	public void runTest() {
 
-		test2 = extent.createTest("Google Search Test One", "this is to validate google search functionality");
+		test2 = extent.createTest("Google Search Test 2-A", "this is to validate google search functionality");
 
-		test2.log(Status.INFO, "Starting Test Case 2");
+		test2.log(Status.INFO, "Starting Test Case 2-a");
 		driver.manage().window().maximize();
 		String url = "https://google.com";
 		driver.get(url); //driver.get("https://google.com");
@@ -98,12 +98,45 @@ public class FirstSeleniumTest_ExtentReports_TestNG {
 		}
 
 	}
+	
+	@Test
+	public void runTest2() {
+
+		test2 = extent.createTest("Google Search Test 2-B", "this is to validate google search functionality");
+
+		test2.log(Status.INFO, "Starting Test Case 2-b");
+		driver.manage().window().maximize();
+		String url = "https://google.com";
+		driver.get(url); //driver.get("https://google.com");
+		System.out.println("Browser running and opening URL " + url);
+		test2.pass("Navigated to google.com");
+
+		GoogleSearchPageObjects searchPageObj = new GoogleSearchPageObjects(driver); //calling WebDriver from GoogleSearchPageObject class
+
+		searchPageObj.setTextInSearchBox("Automation Step by Step"); //referencing to pages/GoogleSearchObjects class
+		test2.pass("Entered text in searchbox");
+
+		searchPageObj.clickSearchButton(); //referencing to pages/GoogleSearchObjects class
+		test2.pass("Pressed keyboard enter key");
+
+		try {
+			Thread.sleep(3000); //3 sec delay
+		} catch (Exception exp) {
+			exp.printStackTrace();
+		}
+
+	}
 
 	@AfterTest
-	public static void endTest() {
+	public  void closeBrowser() {
 		driver.close();
+		driver.quit();
 		System.out.println("Browser closed");
-		test2.info("Test 2 Completed");
+		test2.info("Completed Test Case");
+	}
+	
+	@AfterSuite
+	public  void endTest() {
 		extent.flush();
 	}
 
