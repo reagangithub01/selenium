@@ -15,7 +15,7 @@ import config.PropertiesFile;
 import pages.GoogleSearchPage;
 import pages.GoogleSearchPageObjects;
 
-public class FirstSeleniumTest_TestNG {
+public class FirstSeleniumTest_TestNG_2 {
 
 	//static String browser; //use variable w/in the Class=FirstSeleniumTest
 	public static String browser; //this variable is visible outside the Class like Properties.Java 
@@ -60,7 +60,7 @@ public class FirstSeleniumTest_TestNG {
 	}
 
 	@Test
-	public static void runTest() {
+	public static void runTest2() {
 
 		driver.manage().window().maximize();
 		String url = "https://google.com";
@@ -87,6 +87,34 @@ public class FirstSeleniumTest_TestNG {
 		
 	}
 
+	@Test
+	public static void runTest3() {
+
+		driver.manage().window().maximize();
+		String url = "https://google.com";
+		driver.get(url); //driver.get("https://google.com");
+		System.out.println("Browser running and opening URL " + url);
+		
+		GoogleSearchPageObjects searchPageObj = new GoogleSearchPageObjects(driver); //calling WebDriver from GoogleSearchPageObject class
+		
+		//driver.findElement(By.name("q")).sendKeys("Automation Step by Step");
+		//GoogleSearchPage.textbox_search(driver).sendKeys("Automation Step by Step"); //referencing to pages/GoogleSearchPage class
+		searchPageObj.setTextInSearchBox("ABCD"); //referencing to pages/GoogleSearchObjects class
+		
+		//driver.findElement(By.name("btnK")).sendKeys(Keys.RETURN);
+		//GoogleSearchPage.button_search(driver).sendKeys(Keys.RETURN); //referencing to pages class
+		searchPageObj.clickSearchButton(); //referencing to pages/GoogleSearchObjects class
+	
+		
+		try {
+			Thread.sleep(3000); //3 sec delay
+		} catch (Exception exp) {
+			exp.printStackTrace();
+		}	
+
+		
+	}
+	
 	@AfterTest
 	public static void closeTest() {
 		driver.close();
